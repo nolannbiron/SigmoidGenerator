@@ -1,0 +1,10 @@
+{
+    "language": {
+        "french": "Français",
+        "english": "English",
+        "toggle": {
+            "french": "Passer en français",
+            "english": "Switch to english"
+        }
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "colorMode": {
+        "toggle": "Passer en mode {{mode, string}}",
+        "light": "clair",
+        "dark": "sombre"
+    },
+    "home": {
+        "welcome": "Bienvenue sur SigmoidGenerator",
+        "description": "Ce site vous permet de générer des courbes de type sigmoidale, c'est-à-dire des courbes qui ont la forme d'une sigmoïde. Vous pouvez choisir les paramètres de la courbe, et la visualiser en temps réel. Vous pouvez également télécharger la courbe au format CSV OU PNG."
+    },
+    "navigation": {
+        "home": "Accueil",
+        "sigmoid": "Sigmoid"
+    },
+    "button": {
+        "download": {
+            "": "Télécharger",
+            "csv": "CSV",
+            "png": "PNG"
+        }
+    },
+    "parameters": {
+        "title": "Paramètres",
+        "label": {
+            "start": "Début",
+            "end": "Fin",
+            "step": "Pas",
+            "mean": "Moyenne",
+            "deviation": "Ecart-type",
+            "totalValue": "Valeur totale"
+        }
+    }
+}
