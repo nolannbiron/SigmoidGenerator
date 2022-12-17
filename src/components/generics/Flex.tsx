@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode } from 'react'
+import { createElement, forwardRef, ReactNode } from 'react'
 
 type SpacingSize = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 16 | 20 | 24 | 32 | 40 | 48 | 56 | 64 | 'px'
 
@@ -11,7 +11,8 @@ type Direction = 'row' | 'col' | 'row-reverse' | 'col-reverse'
 /* flex-wrap flex-wrap-reverse flex-no-wrap */
 type Wrap = 'wrap' | 'wrap-reverse' | 'no-wrap'
 
-interface Props {
+export interface FlexProps {
+    as?: keyof JSX.IntrinsicElements
     direction?: Direction
     wrap?: Wrap
     spacing?: SpacingSize
@@ -20,8 +21,8 @@ interface Props {
     children?: ReactNode
 }
 
-export default forwardRef<HTMLDivElement, React.InputHTMLAttributes<HTMLDivElement> & Props>(function Flex(
-    { direction, wrap, spacing, justify, align, children, className, ...props },
+export default forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement> & FlexProps>(function Flex(
+    { as = 'div', direction, wrap, spacing, justify, align, children, className, ...props },
     ref
 ): JSX.Element {
     const isHorizontal = direction !== 'col' && direction !== 'col-reverse'
@@ -38,9 +39,5 @@ export default forwardRef<HTMLDivElement, React.InputHTMLAttributes<HTMLDivEleme
     justify && classes.push(`justify-${justify}`)
     align && classes.push(`items-${align}`)
 
-    return (
-        <div ref={ref} className={classes.join(' ')} {...props}>
-            {children}
-        </div>
-    )
+    return createElement(as, { ref, className: classes.join(' '), ...props }, children)
 })

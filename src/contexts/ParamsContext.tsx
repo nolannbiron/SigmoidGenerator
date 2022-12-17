@@ -13,7 +13,7 @@ type IParamsContext = {
 
 export const ParamsContext = createContext<IParamsContext>({} as IParamsContext)
 
-const initialData: SigmoidParams = {
+export const initialParams: SigmoidParams = {
     start: 20,
     end: 120,
     mean: 0.1,
@@ -30,8 +30,8 @@ const paramsReducer = (state: SigmoidParams, action: React.SetStateAction<Sigmoi
 }
 
 export function ParamsProvider({ children }: Props): JSX.Element {
-    const [savedState, setSavedState] = useLocalStorage('params', initialData)
-    const [state, dispatch] = useReducer(paramsReducer, savedState ?? initialData)
+    const [savedState, setSavedState] = useLocalStorage('params', initialParams)
+    const [state, dispatch] = useReducer(paramsReducer, savedState ?? initialParams)
 
     useEffect(() => {
         state && setSavedState(state)

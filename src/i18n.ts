@@ -1,4 +1,5 @@
-import i18n, { Resource } from 'i18next'
+import { Resource } from 'i18next'
+import * as i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import i18nEnglish from './translations/en.json'
 import i18nFrench from './translations/fr.json'

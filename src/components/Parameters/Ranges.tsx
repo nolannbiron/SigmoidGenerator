@@ -24,7 +24,7 @@ export function Ranges({ ranges, value, onChange }: Props) {
 
     const debounced = useDebouncedCallback((key: keyof SigmoidParams, value: SigmoidParams[keyof SigmoidParams]) => {
         onChange(key, value)
-    }, 400)
+    }, 300)
 
     const handleChange = (key: keyof SigmoidParams, value: SigmoidParams[keyof SigmoidParams]) => {
         if (value === formData[key]) return

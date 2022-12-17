@@ -8,7 +8,7 @@ import FileSaver from 'file-saver'
 import Flex from '../generics/Flex'
 import DownloadDropdown from './DownloadDropdown'
 
-interface Props {
+export interface ChartProps {
     params: SigmoidParams
 }
 
@@ -16,7 +16,7 @@ function roundUp(num: number) {
     return Math.ceil(num / 1000) * 1000
 }
 
-export default function Chart({ params }: Props): JSX.Element {
+export default function Chart({ params }: ChartProps): JSX.Element {
     const [canDownload, setCanDownload] = useState(false)
     const series = useMemo(() => dataService.sigmoidSeries(params), [params])
     const [getPng, { ref }] = useCurrentPng()
@@ -80,7 +80,7 @@ export default function Chart({ params }: Props): JSX.Element {
                         width={80}
                     />
                     <Tooltip contentStyle={{ background: useColorModeValue('#fff', '#161819'), borderRadius: 10 }} />
-                    <Line type="monotone" dataKey="value" stroke={useColorModeValue('#463aa1', '#93c5fd')} />
+                    <Line type="monotone" dataKey="value" stroke="#0053FF" />
                 </LineChart>
             </ResponsiveContainer>
             <Flex className="relative mb-4" justify="center">

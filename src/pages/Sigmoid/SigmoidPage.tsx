@@ -4,8 +4,12 @@ import Flex from '../../components/generics/Flex'
 import Parameters from '../../components/Parameters/Parameters'
 import { useParameters } from '../../contexts/ParamsContext'
 import { SigmoidParams } from '../../data/types'
+import { useTranslation } from 'react-i18next'
+import { FaChartLine } from 'react-icons/fa'
+import { motion } from 'framer-motion'
 
 export default function SigmoidPage(): JSX.Element {
+    const { t } = useTranslation()
     const { state, dispatch } = useParameters()
     const [params, setParams] = useState<SigmoidParams>(state)
 
@@ -16,8 +20,17 @@ export default function SigmoidPage(): JSX.Element {
     }
 
     return (
-        <div className="container mx-auto mt-5">
-            <div className="text-3xl mb-5 font-bold">Sigmoid</div>
+        <motion.section
+            className="container h-full flex-1 mx-auto flex-col flex items-center justify-center"
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ duration: 0.5 }}
+        >
+            <div className="text-3xl mb-5 flex items-center gap-3 font-bold">
+                <FaChartLine />
+                {t('navigation.sigmoid')}
+            </div>
             <Flex direction="col-reverse" className="lg:flex-row w-full gap-4 lg:gap-8">
                 <div className="w-full lg:w-8/12 relative">
                     <Flex
@@ -31,6 +44,6 @@ export default function SigmoidPage(): JSX.Element {
                     <Parameters value={params} onChange={handleChange} />
                 </div>
             </Flex>
-        </div>
+        </motion.section>
     )
 }

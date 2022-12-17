@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useReducer } from 'react'
 import { useLocalStorage } from 'react-use'
-import i18n, { AvailableCountryCode, countries } from '../i18n'
+import { AvailableCountryCode, countries } from '../i18n'
+import i18n from 'i18next'
 
 interface Props {
     children: React.ReactNode

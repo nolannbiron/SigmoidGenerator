@@ -11,10 +11,6 @@ export type Route = WithRequired<RouteObject, 'path'> & {
     hidden?: boolean
 }
 
-export type NavbarRoutes = {
-    main: Route[]
-    [key: string]: Route[]
-}
 export interface RoutesConfig {
     navbar: Route[]
     general: PathComponent[]

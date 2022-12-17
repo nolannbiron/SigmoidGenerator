@@ -2,16 +2,16 @@ import { Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 import DropdownItem, { DropdownItems } from './DropdownItem'
 
-interface Props {
+export interface DropdownProps {
     items: DropdownItems
     title?: string | null
     icon?: JSX.Element
     disabled?: boolean
 }
 
-export default function Dropdown({ items, icon, title, disabled }: Props): JSX.Element {
+export default function Dropdown({ items, icon, title, disabled }: DropdownProps): JSX.Element {
     return (
-        <Menu as="div" className="relative h-full text-left">
+        <Menu data-testid="dropdown" as="div" className="relative h-full text-left">
             <div>
                 <Menu.Button disabled={disabled} className="btn-outline btn btn-sm flex-1 gap-2">
                     {icon && <span>{icon}</span>}

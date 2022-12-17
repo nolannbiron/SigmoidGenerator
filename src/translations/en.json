@@ -5,19 +5,20 @@
         "dark": "dark"
     },
     "home": {
-        "welcome": "Welcome on SigmoidGenerator",
+        "welcome": "Welcome on SigmoidViewer",
         "description": "This website allows you to generate a sigmoid curve with the parameters you want. You can download the result in a CSV or PNG file."
     },
     "navigation": {
         "home": "Home",
-        "sigmoid": "Sigmoid"
+        "sigmoid": "Chart"
     },
     "button": {
         "download": {
             "": "Download",
             "csv": "CSV",
             "png": "PNG"
-        }
+        },
+        "chart": "See chart"
     },
     "parameters": {
         "title": "Parameters",
