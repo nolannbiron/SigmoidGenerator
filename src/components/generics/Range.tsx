@@ -11,10 +11,14 @@ export default function Range({ className, label, ...props }: RangeProps): JSX.E
     const classes = className ? [...commonClasses, className] : commonClasses
 
     return (
-        <div data-testid="range" className="form-control">
-            {!!label && <label className="label">{label}</label>}
+        <div className="form-control">
+            {!!label && (
+                <label role="label" className="label">
+                    {label}
+                </label>
+            )}
             <Flex align="center" className="space-x-6">
-                <input type="range" {...props} className={classes.join(' ')} />
+                <input name="range" type="range" {...props} className={classes.join(' ')} />
                 <input
                     type="number"
                     {...props}

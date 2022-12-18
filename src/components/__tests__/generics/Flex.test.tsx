@@ -1,7 +1,4 @@
-// testing <Flex /> component
-
-import '@testing-library/jest-dom'
-import Flex, { FlexProps } from '../Flex'
+import Flex, { FlexProps } from '../../generics/Flex'
 import { render } from '@testing-library/react'
 
 const makeSut = (props: Partial<FlexProps> & React.HTMLAttributes<HTMLDivElement>) => {

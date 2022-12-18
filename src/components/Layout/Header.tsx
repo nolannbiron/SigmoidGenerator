@@ -19,6 +19,7 @@ export default function Header(): JSX.Element {
                         <Link
                             to="/"
                             className="btn btn-ghost flex items-center fill-white dark:fill-black max-w-[130px]"
+                            role="img"
                         >
                             <Logo />
                         </Link>

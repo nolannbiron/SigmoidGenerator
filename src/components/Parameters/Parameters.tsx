@@ -1,13 +1,14 @@
-import { Ranges, Range } from './Ranges'
+import Ranges, { type Range } from './Ranges'
 import { useTranslation } from 'react-i18next'
 import { SigmoidParams } from '../../data/types'
+import Collapse from '../generics/Collapse'
 
-interface Props {
+export interface ParametersProps {
     onChange: (key: keyof SigmoidParams, value: SigmoidParams[keyof SigmoidParams]) => void
     value: SigmoidParams
 }
 
-const ranges: Range[] = [
+export const defaultRanges: Range[] = [
     {
         label: 'start',
         min: 0,
@@ -38,19 +39,12 @@ const ranges: Range[] = [
     },
 ]
 
-export default function Parameters({ onChange, value }: Props): JSX.Element {
+export default function Parameters({ onChange, value }: ParametersProps): JSX.Element {
     const { t } = useTranslation()
 
     return (
-        <div className="collapse max-lg:collapse-arrow lg:collapse-open border border-base-300 bg-base-100 dark:bg-base-300 rounded-box">
-            <input type="checkbox" className="peer" />
-            <div className="collapse-title text-xl font-medium">
-                <div className="font-bold text-base-content text-lg">{t('parameters.title')}</div>
-            </div>
-
-            <div className="collapse-content">
-                <Ranges ranges={ranges} value={value} onChange={onChange} />
-            </div>
-        </div>
+        <Collapse title={t('parameters.title')}>
+            <Ranges ranges={defaultRanges} value={value} onChange={onChange} />
+        </Collapse>
     )
 }

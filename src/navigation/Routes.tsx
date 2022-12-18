@@ -1,6 +1,6 @@
 import { FaChartLine } from 'react-icons/fa'
-import HomePage from '../pages/Home/Home'
-import SigmoidPage from '../pages/Sigmoid/SigmoidPage'
+import HomePage from '../pages/HomePage'
+import ChartPage from '../pages/ChartPage'
 import { RoutesConfig } from './types'
 import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
@@ -29,12 +29,24 @@ export const useGetRoutesConfig = (): RoutesConfig => {
                         <Helmet>
                             <title>Nomiks - {t('navigation.sigmoid')}</title>
                         </Helmet>
-                        <SigmoidPage />
+                        <ChartPage />
                     </>
                 ),
                 name: t('navigation.sigmoid'),
             },
         ],
-        general: [],
+        general: [
+            {
+                path: '*',
+                element: (
+                    <>
+                        <Helmet>
+                            <title>Nomiks - 404</title>
+                        </Helmet>
+                        <h1>404</h1>
+                    </>
+                ),
+            },
+        ],
     }
 }

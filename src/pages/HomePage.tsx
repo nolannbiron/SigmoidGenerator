@@ -1,10 +1,11 @@
 import { useTranslation } from 'react-i18next'
-import Flex from '../../components/generics/Flex'
+import Flex from '../components/generics/Flex'
 import { FaChartLine, FaGithub } from 'react-icons/fa'
-import { useColorMode, useTranslationContext } from '../../contexts/AppContext'
+import { useColorMode, useTranslationContext } from '../contexts/AppContext'
 import { BsMoonFill, BsSunFill } from 'react-icons/bs'
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import Button from '../components/generics/Button/Button'
+import ButtonLink from '../components/generics/Button/ButtonLink'
 
 export default function HomePage(): JSX.Element {
     const { t } = useTranslation()
@@ -28,27 +29,29 @@ export default function HomePage(): JSX.Element {
                 {t('home.description')}
             </div>
 
-            <Link to="/sigmoid" className="btn gap-3 w-full sm:w-fit btn-info">
+            <ButtonLink variant="primary" to="/sigmoid" className="w-full sm:w-fit">
                 <FaChartLine /> {t('button.chart')}
-            </Link>
+            </ButtonLink>
 
             <Flex direction="row" wrap="wrap" className="sm:flex-nowrap gap-4 mt-4 sm:mt-12">
-                <a
+                <Button
+                    as="a"
+                    variant="ghost"
                     href="https://github.com/nolannbiron/test-nomiks"
                     target="_blank"
-                    className="btn gap-3 w-full sm:w-fit text-white btn-ghost bg-black"
+                    className="w-full sm:w-fit text-white bg-black"
                 >
                     <FaGithub /> Github
-                </a>
-                <button onClick={toggleColorMode} className="btn btn-secondary gap-3 w-full sm:w-[250px]">
+                </Button>
+                <Button onClick={toggleColorMode} variant="secondary" className="w-full sm:w-[250px]">
                     {colorMode !== 'dark' ? <BsMoonFill className="h-4" /> : <BsSunFill className="h-4" />}
                     {t('colorMode.toggle', {
                         mode: t(`colorMode.${colorMode === 'dark' ? 'light' : 'dark'}`),
                     })}
-                </button>
-                <button onClick={toggleCountryCode} className="btn btn-secondary w-full sm:w-fit">
+                </Button>
+                <Button variant="secondary" onClick={toggleCountryCode} className="w-full sm:w-fit">
                     {t(`language.toggle.${countryCode === 'fr-FR' ? 'english' : 'french'}`)}
-                </button>
+                </Button>
             </Flex>
         </motion.section>
     )

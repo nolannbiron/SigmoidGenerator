@@ -6,13 +6,13 @@ import NavbarElement from './NavbarElement'
 import { BsX } from 'react-icons/bs'
 import motionProps from './motion'
 
-interface Props {
+export interface MobileNavigationProps {
     routes: Route[]
     show: boolean
     onClose: () => void
 }
 
-export default function MobileNavigation({ onClose, show, routes }: Props): JSX.Element {
+export default function MobileNavigation({ onClose, show, routes }: MobileNavigationProps): JSX.Element {
     return (
         <Drawer
             placement="right"

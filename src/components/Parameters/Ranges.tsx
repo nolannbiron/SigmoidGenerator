@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { SigmoidParams } from '../../data/types'
 import { useDebouncedCallback } from 'use-debounce'
 
-interface Props {
+export interface RangesProps {
     ranges: Range[]
     onChange: (key: keyof SigmoidParams, value: SigmoidParams[keyof SigmoidParams]) => void
     value: SigmoidParams
@@ -18,7 +18,7 @@ export interface Range {
     step?: number
 }
 
-export function Ranges({ ranges, value, onChange }: Props) {
+export default function Ranges({ ranges, value, onChange }: RangesProps): JSX.Element {
     const { t } = useTranslation()
     const [formData, setFormData] = useState<SigmoidParams>(value)
 
