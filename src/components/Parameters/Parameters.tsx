@@ -28,8 +28,8 @@ export const defaultRanges: Range[] = [
     {
         label: 'deviation',
         min: 0,
-        max: 1,
-        step: 0.1,
+        max: 50,
+        step: 1,
     },
     {
         label: 'totalValue',
@@ -43,8 +43,11 @@ export default function Parameters({ onChange, value }: ParametersProps): JSX.El
     const { t } = useTranslation()
 
     return (
-        <Collapse title={t('parameters.title')}>
-            <Ranges ranges={defaultRanges} value={value} onChange={onChange} />
+        <Collapse>
+            <Collapse.Header>{t('parameters.title')}</Collapse.Header>
+            <Collapse.Body>
+                <Ranges ranges={defaultRanges} value={value} onChange={onChange} />
+            </Collapse.Body>
         </Collapse>
     )
 }
