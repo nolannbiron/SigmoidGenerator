@@ -1,2 +1,1 @@
-# test-nomiks
- 
+# SigmoidGenerator

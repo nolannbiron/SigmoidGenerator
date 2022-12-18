@@ -5,6 +5,7 @@ import { RoutesConfig } from './types'
 import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 
+// Routes are defined in a separate file for better readability
 export const useGetRoutesConfig = (): RoutesConfig => {
     const { t } = useTranslation()
     return {

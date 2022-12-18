@@ -66,7 +66,7 @@ export default function Chart({ params }: ChartProps): JSX.Element {
                     }}
                 >
                     <XAxis
-                        //using Math.random() to force re-rendering of the component
+                        //using Math.random() to force re-rendering of the component when params change
                         key={Math.random()}
                         label={{ value: 'x', position: 'insideLeft' }}
                         dataKey="x"

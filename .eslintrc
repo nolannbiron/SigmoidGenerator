@@ -1,5 +1,13 @@
 {
-    "plugins": ["@typescript-eslint"],
-    "extends": ["plugin:@typescript-eslint/recommended"],
-    "ignorePatterns": ["node_modules/"]
+    "plugins": ["@typescript-eslint", "react-hooks"],
+    "extends": ["plugin:@typescript-eslint/recommended", "plugin:react/recommended"],
+    "ignorePatterns": ["node_modules/"],
+    "rules": {
+        "react/react-in-jsx-scope": "off" // safe for React >= 17
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    }
 }

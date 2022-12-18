@@ -6,6 +6,7 @@ import { BsMoonFill, BsSunFill } from 'react-icons/bs'
 import { motion } from 'framer-motion'
 import Button from '../components/generics/Button/Button'
 import ButtonLink from '../components/generics/Button/ButtonLink'
+import ReactCountryFlag from 'react-country-flag'
 
 export default function HomePage(): JSX.Element {
     const { t } = useTranslation()
@@ -29,8 +30,8 @@ export default function HomePage(): JSX.Element {
                 {t('home.description')}
             </div>
 
-            <ButtonLink variant="primary" to="/sigmoid" className="w-full sm:w-fit">
-                <FaChartLine /> {t('button.chart')}
+            <ButtonLink variant="info" to="/sigmoid" className="w-full sm:w-fit">
+                <FaChartLine size={18} /> {t('button.chart')}
             </ButtonLink>
 
             <Flex direction="row" wrap="wrap" className="sm:flex-nowrap gap-4 mt-4 sm:mt-12">
@@ -41,15 +42,16 @@ export default function HomePage(): JSX.Element {
                     target="_blank"
                     className="w-full sm:w-fit text-white bg-black"
                 >
-                    <FaGithub /> Github
+                    <FaGithub size={16} /> Github
                 </Button>
                 <Button onClick={toggleColorMode} variant="secondary" className="w-full sm:w-[250px]">
-                    {colorMode !== 'dark' ? <BsMoonFill className="h-4" /> : <BsSunFill className="h-4" />}
+                    {colorMode !== 'dark' ? <BsMoonFill size={16} /> : <BsSunFill size={16} />}
                     {t('colorMode.toggle', {
                         mode: t(`colorMode.${colorMode === 'dark' ? 'light' : 'dark'}`),
                     })}
                 </Button>
                 <Button variant="secondary" onClick={toggleCountryCode} className="w-full sm:w-fit">
+                    <ReactCountryFlag countryCode={countryCode === 'fr-FR' ? 'us' : 'fr'} svg />
                     {t(`language.toggle.${countryCode === 'fr-FR' ? 'english' : 'french'}`)}
                 </Button>
             </Flex>

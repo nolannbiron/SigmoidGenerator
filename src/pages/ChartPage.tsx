@@ -21,7 +21,7 @@ export default function ChartPage(): JSX.Element {
 
     return (
         <motion.section
-            className="container h-full flex-1 mx-auto"
+            className="container h-full flex-1 mx-auto flex flex-col items-start lg:justify-center"
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
