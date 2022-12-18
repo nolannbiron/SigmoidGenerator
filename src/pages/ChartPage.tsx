@@ -7,6 +7,7 @@ import { SigmoidParams } from '../data/types'
 import { useTranslation } from 'react-i18next'
 import { FaChartLine } from 'react-icons/fa'
 import { motion } from 'framer-motion'
+import Card from '../components/generics/Card'
 
 export default function ChartPage(): JSX.Element {
     const { t } = useTranslation()
@@ -33,13 +34,9 @@ export default function ChartPage(): JSX.Element {
             </div>
             <Flex direction="col-reverse" className="lg:flex-row w-full gap-4 lg:gap-8">
                 <div className="w-full lg:w-8/12 relative">
-                    <Flex
-                        direction="col"
-                        className="card w-full h-full relative bg-base-100 border border-base-300 dark:bg-base-300"
-                        role="figure"
-                    >
+                    <Card className="flex-col">
                         <Chart params={params} />
-                    </Flex>
+                    </Card>
                 </div>
                 <div className="w-full lg:w-4/12">
                     <Parameters value={params} onChange={handleChange} />

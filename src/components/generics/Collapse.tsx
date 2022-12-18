@@ -1,13 +1,15 @@
+import Card from './Card'
+
 export interface CollapseProps {
     children?: React.ReactNode
 }
 
 function Collapse({ children }: CollapseProps): JSX.Element {
     return (
-        <div className="collapse max-lg:collapse-arrow lg:collapse-open border border-base-300 bg-base-100 dark:bg-base-300 rounded-box">
+        <Card className="collapse max-lg:collapse-arrow lg:collapse-open">
             <input type="checkbox" className="peer" />
             {children}
-        </div>
+        </Card>
     )
 }
 

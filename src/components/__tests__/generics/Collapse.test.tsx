@@ -2,18 +2,23 @@ import { fireEvent, render } from '@testing-library/react'
 import Collapse, { type CollapseProps } from '../../generics/Collapse'
 
 const makeSut = (props: CollapseProps & React.HTMLAttributes<HTMLDivElement>) => {
-    return render(<Collapse {...props} />)
+    return render(
+        <Collapse {...props}>
+            <Collapse.Header>Test title</Collapse.Header>
+            <Collapse.Body>Test children</Collapse.Body>
+        </Collapse>
+    )
 }
 
 describe('<Collapse />', () => {
     test('Should render collapse correctly', () => {
-        const { getByText } = makeSut({ title: 'Test title' })
+        const { getByText } = makeSut({})
 
         expect(getByText(/Test title/)).toBeInTheDocument()
     })
 
     test('Should render collapse with children correctly', () => {
-        const { getByText, getByRole } = makeSut({ title: 'Test title', children: 'Test children' })
+        const { getByText, getByRole } = makeSut({})
 
         const button = getByRole('checkbox')
 
