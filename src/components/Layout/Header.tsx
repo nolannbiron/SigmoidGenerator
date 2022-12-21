@@ -26,6 +26,7 @@ export default function Header(): JSX.Element {
                     </div>
                     <div className="flex-none hidden sm:block">
                         <ul className="flex flex-row items-center gap-3 menu-compact menu menu-horizontal">
+                            {/* An empty <li> is needed as first-child for daisy-ui menu style */}
                             <li></li>
                             {navbar
                                 .filter(({ hidden }) => !hidden)

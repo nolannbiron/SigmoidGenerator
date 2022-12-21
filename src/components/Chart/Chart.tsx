@@ -19,7 +19,7 @@ function roundUp(num: number) {
 export default function Chart({ params }: ChartProps): JSX.Element {
     const [canDownload, setCanDownload] = useState(false)
     const series = useMemo(() => dataService.sigmoidSeries(params), [params])
-    const [getPng, { ref }] = useCurrentPng()
+    const { getPng, ref } = useCurrentPng()
 
     useEffect(() => {
         setTimeout(() => {

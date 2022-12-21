@@ -15,6 +15,27 @@ class DataServices {
         return series
     }
 
+    /**
+     *
+     * @param start - start of the series
+     * @param end - end of the series
+     * @param step	- step of the series
+     * @param mean - mean of the sigmoid function
+     * @param deviation - deviation of the sigmoid function
+     * @param totalValue - total value of the sigmoid function
+     *
+     * @returns SigmoidSeries
+     *
+     * @example
+     * const sigmoidSeries = dataService.sigmoidSeries({
+     * 		start: 0,
+     * 		end: 100,
+     * 		step: 10,
+     * 		mean: 0.1,
+     * 		deviation: 50,
+     * 		totalValue: 100,
+     * })
+     */
     sigmoidSeries({ start, end, step, mean, deviation, totalValue }: SigmoidParams): SigmoidSeries {
         step = Math.floor((end - start) / 10)
         const sigmoid = (x: number) => {

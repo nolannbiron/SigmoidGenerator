@@ -34,6 +34,7 @@ export function ParamsProvider({ children }: Props): JSX.Element {
     const [state, dispatch] = useReducer(paramsReducer, savedState ?? defaultParams)
 
     useEffect(() => {
+        // Save the state in the local storage
         state && setSavedState(state)
     }, [state, setSavedState])
 

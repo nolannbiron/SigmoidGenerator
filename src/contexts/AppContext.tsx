@@ -24,8 +24,8 @@ type IAppContext = {
 export const AppContext = createContext<IAppContext>({} as IAppContext)
 
 const initialData: IAppState = {
-    colorMode: 'dark' as const,
-    countryCode: 'fr-FR' as const,
+    colorMode: 'dark',
+    countryCode: 'fr-FR',
 }
 
 const appReducer = (state: IAppState, action: Actions) => {
@@ -44,10 +44,12 @@ export function AppProvider({ children }: Props): JSX.Element {
     const [state, dispatch] = useReducer(appReducer, savedState ?? initialData)
 
     useEffect(() => {
+        // Save the state in the local storage
         state && setSavedState(state)
     }, [state, setSavedState])
 
     useEffect(() => {
+        // Listen to the system color mode change
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
             if (event.matches) {
                 dispatch({ type: 'setcolorMode', payload: 'dark' })
@@ -58,6 +60,7 @@ export function AppProvider({ children }: Props): JSX.Element {
     }, [])
 
     useEffect(() => {
+        // Add a data-theme attribute to the body element when the color mode changes
         document.body.setAttribute('data-theme', state.colorMode)
         document.body.className = state.colorMode
     }, [state.colorMode])
@@ -65,6 +68,7 @@ export function AppProvider({ children }: Props): JSX.Element {
     const selectedLanguage = countries[state.countryCode].language
 
     useEffect(() => {
+        // Change the i18n instance language when the country code changes
         if (selectedLanguage !== i18n.language) i18n.changeLanguage(selectedLanguage)
     }, [selectedLanguage])
 

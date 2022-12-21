@@ -2,19 +2,27 @@
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import html2canvas, { Options } from 'html2canvas'
-import { Component, createRef, useCallback, useRef, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 
-export type UseCurrentPng = [
-    () => Promise<string | undefined>,
-    {
-        isLoading: boolean
-        ref: React.MutableRefObject<any>
-    }
-]
+export type UseCurrentPng = {
+    getPng: () => Promise<string | undefined>
+    isLoading: boolean
+    ref: React.MutableRefObject<any>
+}
 
 /**
- * @param options - optional html2canvas Options object
- */
+ * Hook to download a PNG of the current chart
+ * @param options - Options for html2canvas
+ * @returns [getPng, { isLoading, ref }]
+ * @example
+ * const [getPng, { isLoading, ref }] = useCurrentPng()
+ * return (
+ * <div ref={ref}>
+ * 	<LineChart data={data} />
+ * 	<button onClick={getPng}>Get PNG</button>
+ * </div>
+ * )
+ **/
 export function useCurrentPng(options?: Partial<Options>): UseCurrentPng {
     const ref = useRef<any>()
     const [isLoading, setIsLoading] = useState(false)
@@ -33,54 +41,9 @@ export function useCurrentPng(options?: Partial<Options>): UseCurrentPng {
         }
     }, [options])
 
-    return [
+    return {
         getPng,
-        {
-            ref,
-            isLoading,
-        },
-    ]
-}
-
-export interface CurrentPngProps {
-    chartRef: React.RefObject<any>
-    getPng: (options?: Partial<Options>) => Promise<string | undefined>
-    isLoading: boolean
-}
-
-interface Props {
-    children: (props: CurrentPngProps) => React.ReactNode
-}
-
-interface State {
-    isLoading: boolean
-}
-
-export class CurrentPng extends Component<Props, State> {
-    private chartRef = createRef<any>()
-
-    state: State = {
-        isLoading: false,
-    }
-
-    getPng = async (options?: Partial<Options>) => {
-        if (this.chartRef.current?.container) {
-            this.setState({ isLoading: true })
-
-            return await html2canvas(this.chartRef.current.container as HTMLElement, {
-                ...options,
-            }).then((canvas) => {
-                this.setState({ isLoading: false })
-                return canvas.toDataURL('image/png', 1.0)
-            })
-        }
-    }
-
-    render() {
-        return this.props.children({
-            chartRef: this.chartRef,
-            getPng: this.getPng,
-            isLoading: this.state.isLoading,
-        })
+        ref,
+        isLoading,
     }
 }
