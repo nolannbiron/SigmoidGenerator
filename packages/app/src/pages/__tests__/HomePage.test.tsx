@@ -3,16 +3,19 @@ import { AppProvider } from '../../contexts/AppContext'
 import { ParamsProvider } from '../../contexts/ParamsContext'
 import HomePage from '../HomePage'
 import { BrowserRouter } from 'react-router-dom'
+import { ThemeProvider } from '@sigmoidgenerator/theme'
 
 const makeSut = () => {
     return render(
-        <AppProvider>
-            <ParamsProvider>
-                <BrowserRouter>
-                    <HomePage />
-                </BrowserRouter>
-            </ParamsProvider>
-        </AppProvider>
+        <ThemeProvider>
+            <AppProvider>
+                <ParamsProvider>
+                    <BrowserRouter>
+                        <HomePage />
+                    </BrowserRouter>
+                </ParamsProvider>
+            </AppProvider>
+        </ThemeProvider>
     )
 }
 

@@ -2,14 +2,17 @@ import { render } from '@testing-library/react'
 import Header from '../../Layout/Header'
 import { BrowserRouter } from 'react-router-dom'
 import { AppProvider } from '../../../contexts/AppContext'
+import { ThemeProvider } from '@sigmoidgenerator/theme'
 
 const makeSut = () => {
     return render(
-        <AppProvider>
-            <BrowserRouter>
-                <Header />
-            </BrowserRouter>
-        </AppProvider>
+        <ThemeProvider>
+            <AppProvider>
+                <BrowserRouter>
+                    <Header />
+                </BrowserRouter>
+            </AppProvider>
+        </ThemeProvider>
     )
 }
 

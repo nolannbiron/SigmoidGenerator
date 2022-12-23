@@ -2,14 +2,17 @@ import { render } from '@testing-library/react'
 import Chart from '../../Chart/Chart'
 import { AppProvider } from '../../../contexts/AppContext'
 import { ParamsProvider, defaultParams } from '../../../contexts/ParamsContext'
+import { ThemeProvider } from '@sigmoidgenerator/theme'
 
 const makeSut = () => {
     return render(
-        <AppProvider>
-            <ParamsProvider>
-                <Chart params={defaultParams} />
-            </ParamsProvider>
-        </AppProvider>
+        <ThemeProvider>
+            <AppProvider>
+                <ParamsProvider>
+                    <Chart params={defaultParams} />
+                </ParamsProvider>
+            </AppProvider>
+        </ThemeProvider>
     )
 }
 

@@ -2,9 +2,14 @@ import { fireEvent, render, waitFor } from '@testing-library/react'
 import Ranges, { RangesProps } from '../../Parameters/Ranges'
 import { defaultRanges } from '../../Parameters/Parameters'
 import { defaultParams } from '../../../contexts/ParamsContext'
+import { ThemeProvider } from '@sigmoidgenerator/theme'
 
 const makeSut = (props: RangesProps & React.HTMLAttributes<HTMLDivElement>) => {
-    return render(<Ranges {...props} />)
+    return render(
+        <ThemeProvider>
+            <Ranges {...props} />
+        </ThemeProvider>
+    )
 }
 
 describe('<Ranges />', () => {

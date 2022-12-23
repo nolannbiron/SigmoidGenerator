@@ -10,7 +10,7 @@
         "build": "tsc && vite build",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",
-        "test": "jest"
+        "test": "Error: Run tests from root"
     },
     "dependencies": {
         "@tailwindcss/typography": "^0.5.8",

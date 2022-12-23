@@ -1,3 +1,6 @@
+const { mergeConfig } = require('vite')
+const { default: tsconfigPaths } = require('vite-tsconfig-paths')
+
 module.exports = {
     stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
     addons: [
@@ -22,6 +25,11 @@ module.exports = {
     framework: '@storybook/react',
     core: {
         builder: '@storybook/builder-vite',
+    },
+    viteFinal(config, { configType }) {
+        return mergeConfig(config, {
+            plugins: [tsconfigPaths()],
+        })
     },
     features: {
         storyStoreV7: true,

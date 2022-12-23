@@ -1,10 +1,10 @@
 import { Menu } from '@headlessui/react'
 import { Flex } from '@/components'
 import { BsCheck } from 'react-icons/bs'
-import { DropdownItem } from './types'
+import { DropdownItem as IDropdownItem } from './types'
 
 interface Props {
-    item: DropdownItem
+    item: IDropdownItem
 }
 
 export default function DropdownItem({ item }: Props): JSX.Element {

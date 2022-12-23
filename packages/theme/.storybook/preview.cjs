@@ -1,5 +1,5 @@
 import addons from '@storybook/addons'
-import '../src/index.scss'
+import '../src/index.css'
 
 /** @type {import('@storybook/react').Parameters} */
 export const parameters = {

@@ -1,5 +1,5 @@
 import { fireEvent, render } from '@testing-library/react'
-import {Button, type ButtonProps } from './'
+import {Button, type ButtonProps } from '.'
 
 const makeSut = (props: ButtonProps) => {
     return render(<Button {...props} />)

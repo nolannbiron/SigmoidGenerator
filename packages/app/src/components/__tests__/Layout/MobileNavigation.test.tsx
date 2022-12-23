@@ -1,12 +1,15 @@
 import { render } from '@testing-library/react'
 import MobileNavigation, { type MobileNavigationProps } from '../../Layout/MobileNavigation'
 import { BrowserRouter } from 'react-router-dom'
+import { ThemeProvider } from '@sigmoidgenerator/theme'
 
 const makeSut = (props: MobileNavigationProps) => {
     return render(
-        <BrowserRouter>
-            <MobileNavigation {...props} />
-        </BrowserRouter>
+		<ThemeProvider>
+			<BrowserRouter>
+				<MobileNavigation {...props} />
+			</BrowserRouter>
+		</ThemeProvider>
     )
 }
 

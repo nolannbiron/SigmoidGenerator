@@ -33,7 +33,7 @@ export default function ChartPage(): JSX.Element {
             </div>
             <Flex direction="col-reverse" className="lg:flex-row w-full gap-4 lg:gap-8">
                 <div className="w-full lg:w-8/12 relative">
-                    <Card className="flex-col">
+                    <Card className="flex-col min-w-full">
                         <Chart params={params} />
                     </Card>
                 </div>

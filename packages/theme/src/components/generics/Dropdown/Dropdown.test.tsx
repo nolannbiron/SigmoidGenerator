@@ -20,7 +20,7 @@ describe('<Dropdown />', () => {
     })
 
     test('Should render items correctly', () => {
-        const { getByText, getByRole } = makeSut({ items: testOptions })
+        const { getByText, getByRole } = makeSut({ title: 'dropdown', items: testOptions })
 
         fireEvent.click(getByRole('button'))
 

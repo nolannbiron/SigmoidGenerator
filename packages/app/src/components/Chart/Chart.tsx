@@ -52,7 +52,7 @@ export default function Chart({ params }: ChartProps): JSX.Element {
 
     return (
         <>
-            <ResponsiveContainer width="100%" height="100%" className="min-h-[500px]">
+            <ResponsiveContainer width="100%" height="100%" minHeight={500} minWidth={500}>
                 <LineChart
                     ref={ref}
                     data={data}
