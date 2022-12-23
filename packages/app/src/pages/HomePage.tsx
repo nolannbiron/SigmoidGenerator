@@ -39,7 +39,7 @@ export default function HomePage(): JSX.Element {
                 <Button
                     as="a"
                     variant="ghost"
-                    href="https://github.com/nolannbiron/test-nomiks"
+                    href="https://github.com/nolannbiron/SigmoidGenerator"
                     target="_blank"
                     className="w-full sm:w-fit text-white bg-black"
                 >
