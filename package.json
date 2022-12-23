@@ -12,7 +12,8 @@
         "build:storybook": "lerna run --scope @sigmoidgenerator/theme build-storybook",
         "storybook": "lerna run --parallel storybook",
         "start": "lerna run --scope @sigmoidgenerator/app preview",
-        "test": "jest"
+        "test": "jest",
+        "lint": "eslint ./packages/*/src --ext .js,.jsx,.ts,.tsx"
     },
     "devDependencies": {
         "@storybook/storybook-deployer": "~2.8.10",

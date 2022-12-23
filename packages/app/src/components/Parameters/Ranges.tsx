@@ -31,25 +31,18 @@ export default function Ranges({ ranges, value, onChange }: RangesProps): JSX.El
 
     const debounced = useDebouncedCallback(
         (key: keyof ParametersFormSchema, value: ParametersFormSchema[keyof ParametersFormSchema]) => {
-            const validation = parametersFormSchema
-                .transform((value) => {
-                    if (value.start < value.end) return value
-                    return {
-                        ...value,
-                        start: value.end,
-                        end: value.start,
-                    }
-                })
-                .safeParse({ ...formData, [key]: value })
+            const validation = parametersFormSchema.safeParse({ ...formData, [key]: value })
             if (!validation.success) return setFormErrors(validation.error.flatten().fieldErrors)
+            if (validation.data.start > validation.data.end)
+                return setFormErrors({ end: "End can't be less than start", start: "Start can't be greater than end" })
             onChange(key, value)
         },
-        300
+        500
     )
 
     const handleChange = (key: keyof ParametersFormSchema, value: ParametersFormSchema[keyof ParametersFormSchema]) => {
         if (value === formData[key]) return
-        setFormErrors({ ...formErrors, [key]: undefined })
+        setFormErrors({ ...formErrors, end: undefined, start: undefined, [key]: undefined })
         setFormData({ ...formData, [key]: value })
         debounced(key, value)
     }

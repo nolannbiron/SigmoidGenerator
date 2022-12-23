@@ -67,7 +67,9 @@ export interface UseThemeReturn {
 }
 
 export const useTheme = (): UseThemeReturn => {
-    const { state, dispatch } = useContext(ThemeContext)
+    const context = useContext(ThemeContext)
+    if (!context) throw new Error('useTheme must be used within a ThemeProvider')
+    const { state, dispatch } = context
     return {
         colorMode: state.colorMode,
         setColorMode: (colorMode: 'dark' | 'light') => {

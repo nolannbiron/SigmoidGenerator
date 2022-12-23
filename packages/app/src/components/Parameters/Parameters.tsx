@@ -1,4 +1,4 @@
-import Ranges, { type Range } from './Ranges'
+import Ranges, { Range } from './Ranges'
 import { useTranslation } from 'react-i18next'
 import { SigmoidParams } from '../../data/types'
 import { Collapse } from '@sigmoidgenerator/theme'
@@ -12,7 +12,7 @@ export const defaultRanges: Range[] = [
     {
         label: 'start',
         min: 0,
-        max: 100,
+        max: 200,
     },
     {
         label: 'end',
