@@ -1,0 +1,51 @@
+{
+    "name": "@sigmoidgenerator/theme",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "module": "./dist/index.js",
+    "main": "./dist/index.umd.cjs",
+    "types": "./dist/main.d.ts",
+    "scripts": {
+        "build": "tsc && vite build",
+        "storybook": "start-storybook -p 6006",
+        "build-storybook": "build-storybook",
+        "test": "jest"
+    },
+    "dependencies": {
+        "@tailwindcss/typography": "^0.5.8",
+        "autoprefixer": "^10.4.13",
+        "daisyui": "^2.46.0",
+        "postcss-cli": "^10.1.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "tailwindcss": "^3.2.4"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.20.5",
+        "@rollup/plugin-node-resolve": "^15.0.1",
+        "@storybook/addon-actions": "^6.5.15",
+        "@storybook/addon-essentials": "^6.5.15",
+        "@storybook/addon-interactions": "^6.5.15",
+        "@storybook/addon-links": "^6.5.15",
+        "@storybook/addon-postcss": "^2.0.0",
+        "@storybook/builder-vite": "^0.2.6",
+        "@storybook/react": "^6.5.15",
+        "@storybook/testing-library": "^0.0.13",
+        "@types/react": "^18.0.26",
+        "@types/react-dom": "^18.0.9",
+        "@vitejs/plugin-react-swc": "^3.0.0",
+        "babel-loader": "^8.3.0",
+        "i": "^0.3.7",
+        "npm": "^9.2.0",
+        "react-router-dom": "^6.5.0",
+        "rollup": "^3.7.5",
+        "rollup-plugin-typescript-paths": "^1.4.0",
+        "storybook-addon-root-attribute": "^1.0.2",
+        "storybook-addon-themes": "^6.1.0",
+        "typescript": "^4.9.3",
+        "vite": "^4.0.0",
+        "vite-plugin-dts": "^1.7.1",
+        "vite-tsconfig-paths": "^4.0.3"
+    }
+}
