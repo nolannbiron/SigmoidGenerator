@@ -11,7 +11,7 @@
     },
     "dependencies": {
         "@headlessui/react": "^1.7.6",
-        "@sigmoidgenerator/theme": "../theme",
+        "@sigmoidgenerator/theme": "^0.0.0",
         "file-saver": "^2.0.5",
         "framer-motion": "^7.10.2",
         "html2canvas": "^1.4.1",
