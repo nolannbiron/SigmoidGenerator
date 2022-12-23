@@ -5,11 +5,11 @@
     "private": true,
     "version": "0.0.0",
     "scripts": {
-        "prebuild": "yarn run test",
         "build": "yarn run build:theme && yarn run build:app",
         "build:app": "lerna run --scope @sigmoidgenerator/app build",
         "build:theme": "lerna run --scope @sigmoidgenerator/theme build",
         "deploy-storybook": "storybook-to-ghpages --packages packages",
+        "build:storybook": "lerna run --scope @sigmoidgenerator/theme build-storybook",
         "storybook": "lerna run --parallel storybook",
         "start": "lerna run --scope @sigmoidgenerator/app preview",
         "test": "jest"

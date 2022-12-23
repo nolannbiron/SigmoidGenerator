@@ -10,6 +10,7 @@
         "build": "tsc && vite build",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",
+        "serve-storybook": "serve storybook-static",
         "test": "Error: Run tests from root"
     },
     "dependencies": {
